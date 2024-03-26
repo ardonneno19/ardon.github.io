@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Program HTML dengan Function</title>
+</head>
+<body>
+    <h1>Contoh Program HTML dengan Function</h1>
+
+    <script>
+        // Penggunaan function dengan if
+        function penggunaanIf() {
+            var umur = prompt("Masukkan umur Anda:");
+            if (umur >= 18) {
+                document.write("Anda sudah dewasa.");
+            } else {
+                document.write("Anda masih di bawah umur.");
+            }
+        }
+
+        // Penggunaan function dengan switch ... case
+        function penggunaanSwitchCase() {
+            var bulan = parseInt(prompt("Masukkan angka bulan (1-12):"));
+            var namaBulan;
+            switch (bulan) {
+                case 1:
+                    namaBulan = "Januari";
+                    break;
+                case 2:
+                    namaBulan = "Februari";
+                    break;
+                case 3:
+                    namaBulan = "Maret";
+                    break;
+                case 4:
+                    namaBulan = "April";
+                    break;
+                case 5:
+                    namaBulan = "Mei";
+                    break;
+                case 6:
+                    namaBulan = "Juni";
+                    break;
+                case 7:
+                    namaBulan = "Juli";
+                    break;
+                case 8:
+                    namaBulan = "Agustus";
+                    break;
+                case 9:
+                    namaBulan = "September";
+                    break;
+                case 10:
+                    namaBulan = "Oktober";
+                    break;
+                case 11:
+                    namaBulan = "November";
+                    break;
+                case 12:
+                    namaBulan = "Desember";
+                    break;
+                default:
+                    namaBulan = "Bulan tidak valid.";
+            }
+            document.write("Bulan: " + namaBulan);
+        }
+
+        // Penggunaan function dengan looping
+        function penggunaanLooping() {
+            var n = parseInt(prompt("Masukkan jumlah pengulangan:"));
+            document.write("<h3>Menggunakan for loop:</h3>");
+            for (var i = 1; i <= n; i++) {
+                document.write("<p>Pengulangan ke-" + i + "</p>");
+            }
+            document.write("<h3>Menggunakan while loop:</h3>");
+            var j = 1;
+            while (j <= n) {
+                document.write("<p>Pengulangan ke-" + j + "</p>");
+                j++;
+            }
+        }
+
+        // Penggunaan function dengan array
+        function penggunaanArray() {
+            var nilai = [85, 90, 75, 80, 95];
+            document.write("<h3>Nilai siswa:</h3>");
+            document.write("<ul>");
+            for (var k = 0; k < nilai.length; k++) {
+                document.write("<li>" + nilai[k] + "</li>");
+            }
+            document.write("</ul>");
+        }
+    </script>
+
+    <button onclick="penggunaanIf()">Penggunaan if</button>
+    <button onclick="penggunaanSwitchCase()">Penggunaan switch ... case</button>
+    <button onclick="penggunaanLooping()">Penggunaan looping</button>
+    <button onclick="penggunaanArray()">Penggunaan array</button>
+</body>
+</html>
