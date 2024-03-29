@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Perkalian</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>&times;</th> <!-- Tanda perkalian (×) -->
+                <!-- Header kolom -->
+                {% for i in range(1, 11) %}
+                    <th>{{ i }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Isi tabel -->
+            {% for i in range(1, 11) %}
+                <tr>
+                    <td>{{ i }}</td> <!-- Header baris -->
+                    <!-- Sel-sel isi tabel -->
+                    {% for j in range(1, 11) %}
+                        <td>{{ i * j }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
