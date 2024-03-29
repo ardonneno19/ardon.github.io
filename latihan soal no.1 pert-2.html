@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Nilai Mahasiswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .output {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="nilaiForm">
+        <h2>Data yang diinput:</h2>
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama"><br>
+        <label for="jurusan">Jurusan:</label><br>
+        <input type="text" id="jurusan" name="jurusan"><br>
+        <label for="nilaiTugas">Nilai Tugas:</label><br>
+        <input type="number" id="nilaiTugas" name="nilaiTugas"><br>
+        <label for="nilaiUTS">Nilai UTS:</label><br>
+        <input type="number" id="nilaiUTS" name="nilaiUTS"><br>
+        <label for="nilaiUAS">Nilai UAS:</label><br>
+        <input type="number" id="nilaiUAS" name="nilaiUAS"><br>
+        <input type="submit" value="Hitung">
+    </form>
+
+    <div class="output" id="output" style="display: none;">
+        <h2>Hasil Perhitungan:</h2>
+        <p>Nama: <span id="outputNama"></span></p>
+        <p>Jurusan: <span id="outputJurusan"></span></p>
+        <p>Nilai Tugas: <span id="outputNilaiTugas"></span></p>
+        <p>Nilai UTS: <span id="outputNilaiUTS"></span></p>
+        <p>Nilai UAS: <span id="outputNilaiUAS"></span></p>
+        <p>Rata-rata: <span id="outputRataRata"></span></p>
+    </div>
+
+    <script>
+        document.getElementById("nilaiForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            calculate();
+        });
+
+        function calculate() {
+            var nama = document.getElementById("nama").value;
+            var jurusan = document.getElementById("jurusan").value;
+            var nilaiTugas = parseFloat(document.getElementById("nilaiTugas").value);
+            var nilaiUTS = parseFloat(document.getElementById("nilaiUTS").value);
+            var nilaiUAS = parseFloat(document.getElementById("nilaiUAS").value);
+
+            var rataRata = (nilaiTugas + nilaiUTS + nilaiUAS) / 3;
+
+            document.getElementById("outputNama").innerText = nama;
+            document.getElementById("outputJurusan").innerText = jurusan;
+            document.getElementById("outputNilaiTugas").innerText = nilaiTugas;
+            document.getElementById("outputNilaiUTS").innerText = nilaiUTS;
+            document.getElementById("outputNilaiUAS").innerText = nilaiUAS;
+            document.getElementById("outputRataRata").innerText = rataRata.toFixed(2);
+
+            document.getElementById("output").style.display = "block";
+        }
+    </script>
+</body>
+</html>
